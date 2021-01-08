@@ -83,4 +83,13 @@ html
 ```
 * 괄호로 나머지 속성 표현
 * |로 아래줄 이어적기 가능
-* 
+
+## socket.io
+```javascript
+var io = require('socket.io').listen(app);
+io.on('connection', function (socket) {
+```
+* connection 이벤트는 사용자가 웹사이트를 들어오면 자동 발생
+* 사용자의 socket이 함수의 파라미터로 전달됨
+* socket.on으로 이벤트를 받고 socket.emit으로 이벤트 발생 io.emit은 접속한 클라이언트 모두에게
+
