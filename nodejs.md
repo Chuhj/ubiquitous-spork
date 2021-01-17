@@ -1,6 +1,7 @@
 # Nodejs :computer:
 * Node.js 는 서버사이드 자바스크립트이며 구글의 자바스크립트 엔진인 V8을 기반으로 구성된 일종의 소프트웨어 시스템이다.
 * 이벤트 기반으로 개발이 가능하며 Non-Blocking I/O를 지원하기 때문에 비동기식 프로그래밍이 가능하다.
+* ==, ===은 다름 ===은 유형과 값을 모두 비교
 
 ## Util 모듈
 * util.format(format, [...]) : console.log() 메소드와 비슷한 기능이지만 console.log()는 화면에 출력하고 util.format은 문자열로 반환합니다.  
@@ -92,4 +93,3 @@ io.on('connection', function (socket) {
 * connection 이벤트는 사용자가 웹사이트를 들어오면 자동 발생
 * 사용자의 socket이 함수의 파라미터로 전달됨
 * socket.on으로 이벤트를 받고 socket.emit으로 이벤트 발생 io.emit은 접속한 클라이언트 모두에게
-* ==, ===은 다름 ===은 유형과 값을 모두 비교
