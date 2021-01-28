@@ -98,3 +98,7 @@ io.on('connection', function (socket) {
 * ``에 값을 넣어 사용
 * ${변수명} 으로 사용가능
 * 엔터로 줄바꿈가능
+
+## Query string
+* require("url")
+* url.parse("url", true).query => {a: 1, b: 2} 반환
