@@ -18,33 +18,6 @@
 * util.isError(object) : 주어진 object가 Error이면 true, 아니면 false를 리턴합니다.
 
 ## 상속
-### Foo 객체 생성
-```javascript
-function Foo() {
-    // 코드
-}
-
-Foo.prototype = {
-    bar: function() {
-        console.log('Foo_bar 실행');
-    }
-};
-```
-### Foo 상속
-```javascript
-function Bar() {
-}
-
-Bar.prototype = Object.create(Foo.prototype);
-
-Bar.prototype.baz = function() {
-    console.log('Bar_baz 실행');
-};
-
-Foo.prototype.bar();
-Bar.prototype.bar();
-Bar.prototype.baz();
-```
 ### util.inherits()를 이용한 상속
 ```javascript
 var util = require('util');
@@ -94,11 +67,6 @@ io.on('connection', function (socket) {
 * connection 이벤트는 사용자가 웹사이트를 들어오면 자동 발생
 * 사용자의 socket이 함수의 파라미터로 전달됨
 * socket.on으로 이벤트를 받고 socket.emit으로 이벤트 발생 io.emit은 접속한 클라이언트 모두에게
-
-## Template Literal
-* ``에 값을 넣어 사용
-* ${변수명} 으로 사용가능
-* 엔터로 줄바꿈가능
 
 ## Query string
 * require("url")
