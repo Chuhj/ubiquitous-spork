@@ -10,6 +10,9 @@ Foo.prototype = {
     }
 };
 ```
+* Foo 함수의 prototype 속성은 프로토타입 객체를 참조
+* 모든 객체가 프로토타입 객체 참조
+* 프로토타입 객체의 생성자는 Foo 함수를 참조
 * Foo 상속
 ```javascript
 function Bar() {
