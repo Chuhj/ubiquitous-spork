@@ -16,3 +16,4 @@ this.setState((prevstate) => {
 ```javascript
 <input ref={(c) => { this.input = c; }}>
 ```
+* setState 실행 시 render 함수 실행
