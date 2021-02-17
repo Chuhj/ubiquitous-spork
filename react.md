@@ -23,3 +23,6 @@ const [value, setValue] = React.useState('');
 const inputRef = React.useRef(null);
 setValue(value);
 ```
+* Hooks로 setState 여러번 나와도 한번으로 처리 => 비동기이기 때문
+* setState할 때 전체 함수를 다시 실행
+* 태그 속성 class => className, for => htmlFor 로 사용
