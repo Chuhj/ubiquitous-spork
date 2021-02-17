@@ -11,3 +11,8 @@ this.setState((prevstate) => {
   };
 });
 ```
+* DOM은 HTML 문서에 대한 인터페이스다. 뷰 포트에 무엇을 렌더링 할지 결정하기 위해 사용되며, 페이지의 콘텐츠 및 구조, 그리고 스타일이 자바스크립트 프로그램에 의해 수정되기 위해 사용됨
+### DOM에 접근하기 위해 ref 태그에서 ref 사용
+```javascript
+<input ref={(c) => { this.input = c; }}>
+```
