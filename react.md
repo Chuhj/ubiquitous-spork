@@ -26,3 +26,5 @@ setValue(value);
 * Hooks로 setState 여러번 나와도 한번으로 처리 => 비동기이기 때문
 * setState할 때 전체 함수를 다시 실행
 * 태그 속성 class => className, for => htmlFor 로 사용
+### Webpack
+* webpack은 여러 파일을 하나의 js파일로 합쳐 html이 실행할 수 있게 만듬. 최신 문법을 엣날 브라우저에서도 돌아갈 수 있게 함
