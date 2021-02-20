@@ -30,3 +30,4 @@ setValue(value);
 * webpack은 여러 파일을 하나의 js파일로 합쳐 html이 실행할 수 있게 만듬. 최신 문법을 엣날 브라우저에서도 돌아갈 수 있게 함 (babel?)
 * @babel/preset-react => jsx 사용 가능
 * @babel/preset-env => 옛날 브라우저에 맞춰줌
+* preset은 플러그인 모음
