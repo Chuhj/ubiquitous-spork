@@ -3,8 +3,15 @@
 * 바뀔 여지가 있는 부분이 상태
 * 컴포넌트의 render 부분에서 상태를 변경 setState
 * Babel로 JSX (Javascript + XML) 사용가능 - script에서 태그들 사용가능
-* 
-
+* exports되는게 배열이나 객체면 구조분해 가능
+  * //ES2015 문법
+  * export const h = 'h' => import { h }
+  * export defalut a => import a
+  * //node.js(common.js) 문법
+  * exports.h = 'h';
+  * module.exports = a => require('a')
+* input 태그의 value와 onChange는 세트. 사용안한다면 defaultValue 사용
+  
 ### 이전 state를 사용할 때 함수 사용
 ```javascript
 this.setState((prevstate) => {
@@ -33,7 +40,17 @@ setValue(value);
 * @babel/preset-react => jsx 사용 가능
 * @babel/preset-env => 옛날 브라우저에 맞춰줌
 * preset은 플러그인 모음
+* node.js로 돌리기 때문에 require 사용
 ### Hot reloading
 * hot reloading - 기존 데이터 유지하면서 변경점이 있으면 리로딩
 * react-refresh 와 @pmmmwh/react-refresh-webpack-plugin 설치 후 사용
 * webpack-dev-server 설치
+### 반복문 배열.map
+'''javascript
+this.state.tries.map((v, i) => {
+            return (
+              <li>{v}</li>
+            );
+          });
+'''
+* return 생략가능. v = value, i = index 
