@@ -11,6 +11,7 @@
   * exports.h = 'h';
   * module.exports = a => require('a')
 * input 태그의 value와 onChange는 세트. 사용안한다면 defaultValue 사용
+* 컴포넌트 분리 => 재사용성, 성능 최적화, 가독성
   
 ### 이전 state를 사용할 때 함수 사용
 ```javascript
@@ -46,11 +47,22 @@ setValue(value);
 * react-refresh 와 @pmmmwh/react-refresh-webpack-plugin 설치 후 사용
 * webpack-dev-server 설치
 ### 반복문 배열.map
-'''javascript
+```javascript
 this.state.tries.map((v, i) => {
             return (
-              <li>{v}</li>
+              <li key={v+1 유일한 값, 성능관리에 필요}>{v}</li>
             );
           });
-'''
-* return 생략가능. v = value, i = index 
+```
+* return 생략가능. v = value, i = index
+### 컴포넌트로 props를 이용해 전달
+```javascript
+this.state.tries.map((v, i) => {
+            return (
+              <Try v={v} i={i}/>
+            );
+          });
+```
+```javascript
+this.props.v, this.props.i 로 받음
+```
