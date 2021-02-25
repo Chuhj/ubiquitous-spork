@@ -66,3 +66,29 @@ this.state.tries.map((v, i) => {
 ```javascript
 this.props.v, this.props.i 로 받음
 ```
+### shouldComponentUpdate
+```javascript
+shouldComponentUpdate(nextProps, nextState, nextContext) {
+  if (this.state.counter !== nextState.counter) {
+    return true;
+  }
+  return false;
+}
+```
+* 바뀌지 않는 부분은 렌더링 시키지 않기 위해 사용
+* state가 바뀔때만 렌더링
+* Component 대신 PureComponent 사용하면 자동으로 해줌.
+* PureComponent
+  * 배열과 객체를 새로 만들어야 바뀐걸 알아차림 - [...this.state.array, 1]
+  * 컴포넌트가 복잡해지면 동작하지 않을 수 있음
+* Memo(Hooks)
+  * memo()로 감싸줌.
+* 자식이 모두 PureComponent나 memo면 부모에게도 적용가능
+### createRef
+```javascript
+class에서
+inputRef = createRef();
+
+this.inputRef.current.focus()
+```
+* Hooks에서는 current를 사용하였는데 class에서도 비슷하게 사용가능
