@@ -12,6 +12,7 @@
   * module.exports = a => require('a')
 * input 태그의 value와 onChange는 세트. 사용안한다면 defaultValue 사용
 * 컴포넌트 분리 => 재사용성, 성능 최적화, 가독성
+* jsx의 조건문은 삼항 연산자 사용
   
 ### 이전 state를 사용할 때 함수 사용
 ```javascript
