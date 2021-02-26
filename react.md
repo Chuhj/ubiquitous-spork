@@ -92,3 +92,16 @@ inputRef = createRef();
 this.inputRef.current.focus()
 ```
 * Hooks에서는 current를 사용하였는데 class에서도 비슷하게 사용가능
+### props 변경
+```javascript
+const [result, setResult] = useState(tryInfo);
+or
+state = {
+  result: this.props.result,
+};
+
+const onClick = () => {
+  setResult('1');
+};
+```
+* props를 변경하고 싶을 땐, state를 새로 만들어 props를 넣어 변경.
