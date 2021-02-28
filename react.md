@@ -110,3 +110,14 @@ const onClick = () => {
 };
 ```
 * props를 변경하고 싶을 땐, state를 새로 만들어 props를 넣어 변경.
+### 클래스 라이프사이클
+* constructor -> render -> ref -> componentDidMount -> (setState/props 바뀜) -> shouldComponentUpdate -> render -> componentDidUpdate -> componentWillUnmount
+### componentDidMount()
+* 컴포넌트의 render()가 처음 실행되고 나서 componentDidMount()가 실행
+* 비동기 요청 많이 함
+* 비동기 함수가 바깥 변수를 참조하면 클로저 발생
+### componentDidUpdate()
+* 리렌더링 후에 실행
+### componentWillUnmount()
+* 부모에 의해 컴포넌트가 제거되기 직전에 실행
+* 비동기 요청 정리
