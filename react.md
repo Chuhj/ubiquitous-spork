@@ -121,3 +121,21 @@ const onClick = () => {
 ### componentWillUnmount()
 * 부모에 의해 컴포넌트가 제거되기 직전에 실행
 * 비동기 요청 정리
+### 메서드 호출하는 부분 간단하게하는 패턴
+```javascript
+onClickBtn = (choice) => () => {
+}
+//
+onClick={this.onClickBtn}
+```
+### useEffect
+```javascript
+useEffect(() => { // componentDidMount, componentDidUpdate 역할
+  interval.current = setInterval(changeHand, 100);
+  return () => { // componentWillUnmount 역할
+    clearInterval(interval.current)
+  }
+}, [imgCoord]);
+```
+* use Effect는 []안의 state가 변경 될 때 마다 실행
+* componentDidUpdate()는 모든 state의 변경에 대해 실행
