@@ -139,3 +139,5 @@ useEffect(() => { // componentDidMount, componentDidUpdate 역할
 ```
 * use Effect는 []안의 state가 변경 될 때 마다 실행
 * componentDidUpdate()는 모든 state의 변경에 대해 실행
+### setInterval
+* setInterval은 필요할 때 설정하고 componentWillUnmount() 에서 정리만 해주면 됨
