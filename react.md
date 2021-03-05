@@ -32,6 +32,7 @@ this.setState((prevstate) => {
 ### useRef
 * this의 속성을 Ref로 표현
 * ref변수.current 로 사용
+* 일반 값을 
 ### Hooks 사용
 ```javascript
 const [value, setValue] = React.useState('');
@@ -141,3 +142,8 @@ useEffect(() => { // componentDidMount, componentDidUpdate 역할
 * componentDidUpdate()는 모든 state의 변경에 대해 실행
 ### setInterval
 * setInterval은 필요할 때 설정하고 componentWillUnmount() 에서 정리만 해주면 됨
+### useMemo
+* 복잡한 함수 결괏값을 기억
+### useCallback
+* 함수 자체를 기억, 그 함수 안의 상태 값은 초기값
+* props로 전달하는 함수는 useCallback 써야함, 쓰지 않으면 props가 계속 바뀌는걸로 인식, 리렌더링
