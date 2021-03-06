@@ -147,3 +147,24 @@ useEffect(() => { // componentDidMount, componentDidUpdate 역할
 ### useCallback
 * 함수 자체를 기억, 그 함수 안의 상태 값은 초기값
 * props로 전달하는 함수는 useCallback 써야함, 쓰지 않으면 props가 계속 바뀌는걸로 인식, 리렌더링
+### useReducer
+```javascript
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'SET_WINNER':
+      return {
+        ...state,
+        winner: action.winner,
+      }
+  }
+};
+const [state, dispatch] = useReducer(reducer, initialState);
+
+const onClickTable = useCallback(() => {
+    dispatch({type: SET_WINNER, winner: 'O'});
+  }, []);
+```
+* state들을 줄일 수 있다.
+* dispatch 안에 action 객체 dispatch로 action을 실행
+* dispatch가 실행될 때 마다 reducer가 실행됨.
+* action을 dispatch 해서 state를 바꾸는데 어떻게 바꿀지는 reducer에 있음
