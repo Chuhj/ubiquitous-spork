@@ -140,6 +140,7 @@ useEffect(() => { // componentDidMount, componentDidUpdate 역할
 ```
 * use Effect는 []안의 state가 변경 될 때 마다 실행
 * componentDidUpdate()는 모든 state의 변경에 대해 실행
+* 비동기로 바뀌는 state에서 뭔가 처리할 때 사용
 ### setInterval
 * setInterval은 필요할 때 설정하고 componentWillUnmount() 에서 정리만 해주면 됨
 ### useMemo
@@ -165,6 +166,6 @@ const onClickTable = useCallback(() => {
   }, []);
 ```
 * state들을 줄일 수 있다.
-* dispatch 안에 action 객체 dispatch로 action을 실행
+* dispatch 안에 action 객체 dispatch로 action을 실행. 비동기.
 * dispatch가 실행될 때 마다 reducer가 실행됨.
 * action을 dispatch 해서 state를 바꾸는데 어떻게 바꿀지는 reducer에 있음
