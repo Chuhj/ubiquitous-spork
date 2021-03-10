@@ -169,3 +169,5 @@ const onClickTable = useCallback(() => {
 * dispatch 안에 action 객체 dispatch로 action을 실행. 비동기.
 * dispatch가 실행될 때 마다 reducer가 실행됨.
 * action을 dispatch 해서 state를 바꾸는데 어떻게 바꿀지는 reducer에 있음
+### Context API
+* 값을 props로 계속 넘겨주는걸 대체해줌
