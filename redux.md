@@ -29,3 +29,6 @@ export function addTodo(text) {
 * 액션을 주면 그 액션이 적용되어 달라진 결과를 만들어 줌
 * 리듀서에서 모든 액션이 다 처리 가능해야 함
 * state 한개만을 변경하는 액션들을 처리하는 리듀서 함수들을 따로 만들어 합침.
+  * CombineReducers 함수로 합칠 수 있음.
+* createStore(리듀서)함수로 스토어 생성
+  * 스토어에 getState(), dispatch(), subscribe(), replaceReducer() 함수가 있음
