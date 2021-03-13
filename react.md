@@ -176,3 +176,12 @@ const onClickTable = useCallback(() => {
 * provider로 감싸서 값을 제공함
 * useContext를 사용하면 전체가 리렌더링. => return 값을 useMemo로 캐싱해야함
   * return 부분을 컴포넌트로 분리해 memo도 사용가능
+### React Router
+* BrowserRouter과 HashRouter를 주로 씀
+* 컴포넌트의 최상단을 Router로 묶어줘야함
+* 컴포넌트들을 한번에 불러와 하나의 페이지에서 동시에 사용가능함
+  * <Link to="/lotto-generator">로또</Link> // 공통인 부분
+  * <Route path="/mine" component={Lotto} />
+* 페이지가 실제로 여러개 존재 하는것이 아니고 눈속임일 뿐
+* 
+ 
