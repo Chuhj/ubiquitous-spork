@@ -172,3 +172,7 @@ const onClickTable = useCallback(() => {
 * action을 dispatch 해서 state를 바꾸는데 어떻게 바꿀지는 reducer에 있음
 ### Context API
 * 값을 props로 계속 넘겨주는걸 대체해줌
+* createContext와 useContext로 사용
+* provider로 감싸서 값을 제공함
+* useContext를 사용하면 전체가 리렌더링. => return 값을 useMemo로 캐싱해야함
+  * return 부분을 컴포넌트로 분리해 memo도 사용가능
