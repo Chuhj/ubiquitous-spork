@@ -180,8 +180,17 @@ const onClickTable = useCallback(() => {
 * BrowserRouter과 HashRouter를 주로 씀
 * 컴포넌트의 최상단을 Router로 묶어줘야함
 * 컴포넌트들을 한번에 불러와 하나의 페이지에서 동시에 사용가능함
-  * <Link to="/lotto-generator">로또</Link> // 공통인 부분
-  * <Route path="/mine" component={Lotto} />
+  * ```<Link to="/lotto-generator">로또</Link>``` // 공통인 부분
+  * ```<Route path="/mine" component={Lotto} />```
+    * path에 "game/:name" :이 붙으면 params를 뜻함
+    * Route가 컴포넌트에 props로 history, location, match를 줌
+    * 만약 없다면 컴포넌트를 react-router-dom 의 withRouter 안에 넣어줌
 * 페이지가 실제로 여러개 존재 하는것이 아니고 눈속임일 뿐
-* 
+* BrowserRouter
+  * 새로고침하면 브라우저에서 찾지못함
+* HashRouter
+  * 주소에 #이 붙음
+  * 새로고침해도 연결해줌
+  * 브라우저가 알고있지만 서버는 모름 => search engine optimization할때 불이익
+* 기본 historyAPI 대신 this.props.history를 사용
  
