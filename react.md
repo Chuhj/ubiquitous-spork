@@ -182,7 +182,7 @@ const onClickTable = useCallback(() => {
 * 컴포넌트들을 한번에 불러와 하나의 페이지에서 동시에 사용가능함
   * ```<Link to="/lotto-generator">로또</Link>``` // 공통인 부분
   * ```<Route path="/mine" component={Lotto} />```
-    * path에 "game/:name" :이 붙으면 params를 뜻함
+    * path에 "game/:name" :이 붙으면 params를 뜻함 동적 라우팅
     * Route가 컴포넌트에 props로 history, location, match를 줌
     * 만약 없다면 컴포넌트를 react-router-dom 의 withRouter 안에 넣어줌
 * 페이지가 실제로 여러개 존재 하는것이 아니고 눈속임일 뿐
@@ -196,4 +196,6 @@ const onClickTable = useCallback(() => {
 * this.props.location.search에 쿼리스트링이 들어오면 URLSearchParams로 데이터를 받을 수 있음
 * let urlSearchParams = new URLSearchParams(this.props.location.search.slice(1));  
   console.log(urlSearchParams.get('a'));
- 
+* <Route>를 <Switch> 안에 넣어주면 첫번째만 렌더링
+* 상위 주소도 맞다고 치고 렌더링함
+* <Route exact path='/'/> exact는 완벽히 주소가 같아야만 렌더링
