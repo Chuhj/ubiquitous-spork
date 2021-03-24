@@ -193,4 +193,7 @@ const onClickTable = useCallback(() => {
   * 새로고침해도 연결해줌
   * 브라우저가 알고있지만 서버는 모름 => search engine optimization할때 불이익
 * 기본 historyAPI 대신 this.props.history를 사용
+* this.props.location.search에 쿼리스트링이 들어오면 URLSearchParams로 데이터를 받을 수 있음
+* let urlSearchParams = new URLSearchParams(this.props.location.search.slice(1));  
+  console.log(urlSearchParams.get('a'));
  
