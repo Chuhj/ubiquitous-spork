@@ -6,6 +6,21 @@
 * Instance -> 실체화 된 것
 * 스프링이 object들을 스캔해서 heap 메모리에 띄워준다.
 
+## IoC컨테이너
+* AppConfig 처럼 객체 생성, 라이프사이클 관리, 의존성 설정을 담당하는 컨테이너
+* 의존성 주입을 강조하기 위해 IoC 컨테이너를 DI 컨테이너, 스프링 컨테이너라고도 부름
+
+## BeanFactory
+* 스프링 컨테이너의 최상위 인터페이스
+* 스프링 빈을 관리하고 조회(getBean())
+* ApplicationContext = BeanFactory기능 + 개발에 필요한 부가기능
+* AnnotationConfigApplicationContext = ApplicationContext의 구현체, 스프링 컨테이너의 실체
+
+### Bean 관리
+* 스프링의 빈 설정은 대표적으로 xml과 java config(annotation)으로 구성
+* 스프링 컨테이너는 BeanDefinition을 참고하여 빈 생성
+* 
+
 ## DI
 * Dependency injection
 * 다른 곳에서 같은 것을 가져다 씀 (싱글톤)
