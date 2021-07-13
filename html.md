@@ -11,3 +11,7 @@
 * \<dl> - 설명 목록
   * \<dt> - 설명할 요소
   * \<dd> - 설명
+* \<table> - 표
+  * \<tr> - row 행
+  * \<td> - cell 열
+  * 속성의 rowspan - 행 합침, colspan - 열 합침
