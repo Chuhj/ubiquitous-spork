@@ -15,3 +15,7 @@
   * \<tr> - row 행
   * \<td> - cell 열
   * 속성의 rowspan - 행 합침, colspan - 열 합침
+
+* \<form action="" method="">
+  * action - 폼 데이터가 도착할 URL
+  * method - HTTP 메소드 결정 GET, POST
