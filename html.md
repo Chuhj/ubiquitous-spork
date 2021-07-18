@@ -19,3 +19,7 @@
 * \<form action="" method="">
   * action - 폼 데이터가 도착할 URL
   * method - HTTP 메소드 결정 GET, POST
+
+* html은 요소가 inline과 block으로 나뉨.
+  * \<div>, \<li>, \<p> - block 요소
+  * \<span> - inline 태그
