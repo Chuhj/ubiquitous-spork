@@ -89,4 +89,13 @@
   * px
   * %
   * em - 기본 1.0 (16px 정도)
-* 
+
+* url 함수
+  * background-img 속성의 속성값으로 많이 사용됨. 이 경우 배경 이미지의 경로
+  * background-img: url('');
+
+* display 속성
+  * 요소가 화면에 어떻게 보이는지를 설정
+  * block - 자동으로 새로운 라인에서 시작함. 해당 라인의 모든 너비를 차지
+  * inline - 같은 라인에서 시작함. height 속성 적용 안됨
+  * block-inline - 같은라인에서 시작하고, height 속성 적용 가능
