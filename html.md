@@ -107,3 +107,28 @@
 * opacity 속성
   * 기본 1.0
   * 줄이면 투명해짐
+
+* margin 속성
+  * 요소의 바깥쪽 여백을 설정
+  * 위 - 오른쪽 - 아래 - 왼쪽
+  * 위 - 양옆 - 아래
+  * 위아래 - 양옆
+
+* padding 속성
+  * 요소의 안쪽 여백을 설정
+  * 내용과 테두리 사이의 여백
+  * background를 확장시킴
+
+* box-sizing 속성
+  * border-box - border가 안쪽으로 만들어짐
+
+* border 속성
+  * 테두리를 설정함
+  * border-width, border-style, border-color 순으로 값을 설정
+  * 3가지 속성을 따로 설정 가능
+
+* background 속성
+  * background-img - url함수로 이미지 지정 가능
+  * background-size - 기본 100%. 줄이면 이미지가 반복되어 나옴.
+  * background-repeat - no-repeat 설정하면 한번만 나옴.
+  * background-attachment - fixed 설정하면 이미지가 브라우저의 왼쪽상단부터 있다고 가정하고 나타남. 뷰포트에 고정
