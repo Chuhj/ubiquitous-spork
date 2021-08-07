@@ -132,3 +132,20 @@
   * background-size - 기본 100%. 줄이면 이미지가 반복되어 나옴.
   * background-repeat - no-repeat 설정하면 한번만 나옴.
   * background-attachment - fixed 설정하면 이미지가 브라우저의 왼쪽상단부터 있다고 가정하고 나타남. 뷰포트에 고정
+
+* font-family 속성
+  * 글꼴 설정
+
+* font-size 속성
+  * 폰트 크기 설정
+
+* font-style 속성
+  * 폰트 스타일 설정 (italic)
+
+* font-weight 속성
+  * 폰트의 가중치나 굵기를 설정 (normal, bold, boler, lighter)
+
+* line-height 속성
+  * 행간격 설정
+  * 부모의 height와 같게 설정하면 위아래 정렬 가능
+
