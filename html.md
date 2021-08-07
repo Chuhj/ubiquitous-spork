@@ -154,3 +154,9 @@
 
 * text-decoration 속성
   * 글씨를 장식 (underline, overline, line-through, none)
+
+* position 속성
+  * 기본 static
+  * absolute - position: static 속성을 가지고 있지 않은 부모를 기준으로 위치를 설정. 없으면 body 기준
+  * relative - 부모를 기준으로 위치를 설정
+  * fixed - 스크롤을 내려도 브라우저에서 위치를 고정시킴
