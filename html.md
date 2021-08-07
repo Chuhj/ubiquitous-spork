@@ -149,3 +149,8 @@
   * 행간격 설정
   * 부모의 height와 같게 설정하면 위아래 정렬 가능
 
+* text-align 속성
+  * 가로 정렬을 설정 (center)
+
+* text-decoration 속성
+  * 글씨를 장식 (underline, overline, line-through, none)
