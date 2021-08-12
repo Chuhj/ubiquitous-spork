@@ -20,6 +20,7 @@ let은 재할당 가능.
 number, bigint, string, boolean, object, symbol, undefined, null  
 숫자가 아닌 문자열에 parseInt, parseFloat을 하면 NaN 반환.  
 0으로 나눌 때 Infinity 반환.  
+!!붙이면 boolean이 나옴.
 
 number는 64비트 부동소수점 방식을 사용. (메모리 최적화에 불리)  
 연산 시 모든 값이 안전한 숫자여야 결과의 정확성이 보장된다. Number.isSafeInteger()  
@@ -32,5 +33,19 @@ includes - 포함여부, startswith - 시작여부, endswith - 끝여부
 문자열 위치 - indexOf, lastIndexOf  
 문자열 분할 - split => 배열  
 문자열 병합 - join => 문자열  
+padStart, padEnd(길이, 문자) - 문자열 앞뒤에 넣어 길이를 맞춤.  
 
-padStart, padEnd(길이, 문자) - 문자열 앞뒤에 넣어 길이를 맞춤.
+* tagged template literals 문법
+```javascript
+function taggedFunc(strings, ...expressions) {}
+taggedFunc`a${b}c${d}`
+// strings, expressions 각각에 배열로 값이 들어감.
+// strings => ['a', 'c', '']
+// expressions => [b에 해당하는 값, d에 해당하는 값]
+```
+
+* nullish coalescing
+기본값을 지정하는 문법.
+```const a = 'a' ?? '기본값'```  
+이 경우 undefined 나 null일 경우 기본값을 사용하지만 0이나 빈 문자열에 대해서는 기본값을 사용하지 않음.  
+따라서 0이나 빈 문자열에 대해서도 기본값을 사용하려면 ||을 이용하면 됨.
