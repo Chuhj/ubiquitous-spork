@@ -87,4 +87,20 @@ splice: 배열의 원소를 삭제하면서 추가. (삭제 위치, 삭제 개�
 person?.name ?를 붙이면 검사를 해줌. 객체가 없다면 undefined.  
 person.getName?.() 함수가 없다면 undefined.  
 arr.[0] 배열에도 사용가능.  
-nullish coalescing과 사용하기 좋음.
+nullish coalescing과 사용하기 좋음.  
+
+### 일급함수
+함수가 다른 변수처럼 취급되면 일급함수.  
+자바스크립트는 함수를 변수에 담을 수 있다.  
+
+### 클로저
+함수와 그 함수를 둘러싼 주변의 상태를 기억하는 기능.  
+내부함수가 외부함수의 지역변수와 매개변수에 접근 가능.  
+자바스크립트는 함수의 지역, 매개변수가 함수가 실행된 후에도 존재.  
+
+### 콜스택
+함수의 실행정보를 관리하기 위해 사용.  
+콜스택에 담기는 함수 실행 정보 - execution context  
+프로그램이 처음 실행될 때 global execution context가 생성됨.  
+execution context안에 lexical environment가 있음.  
+lexical environment - 지역변수의 정보를 저장 - {변수이름:값}으로 이루어진 map이라 보면됨.  
