@@ -104,3 +104,41 @@ nullish coalescing과 사용하기 좋음.
 프로그램이 처음 실행될 때 global execution context가 생성됨.  
 execution context안에 lexical environment가 있음.  
 lexical environment - 지역변수의 정보를 저장 - {변수이름:값}으로 이루어진 map이라 보면됨.  
+
+### Lexical environment
+함수가 만들어질 때의 부모함수의 Lexical environment를 기억해두고 실행할 때 자신의 Lexical environment와 부모의 Le를 연결.  
+함수 내부에서 함수가 만들어지면 Le는 유지됨.  
+
+### 함수
+매개변수의 기본값으로 함수를 설정하면 필수값으로 만들 수 있음.  
+* named parameter: 매개변수를 중괄호로 감쌈. 함수를 사용할 때도 중괄호 사용. 매개변수의 이름을 명시. rest parameter 사용 가능.  
+화살표 함수는 this와 arguments가 바인딩 되지 않음.  
+
+### this
+함수에서 사용가능.  
+함수 내에서 화살표 함수로 정의하면 this는 함수가 생성될 당시의 this를 가리킴.  
+함수 내에서 일반 함수로 정의하면 this는 함수를 호출한 주체를 가리킴.  
+
+### Promise
+콜백함수로 비동기 처리는 복잡함.  
+* Promise란 비동기 상태를 값으로 다룰 수 있는 객체. 비동기 프로그래밍을 할 때 동기 프로그래밍 방식으로 코드 작성 가능.  
+```javascript
+const p = new Promise((resolve, reject) => {});
+const p = Promise.resolve(param);
+const p = Promise.reject('error message');
+```
+세 가지 방식으로 생성 가능하고 데이터를 가질 수 있다.  
+
+* Promise 객체는 세 가지 상태를 가짐.  
+* pending - 비동기 처리 중.
+* fulfilled - 성공.
+* rejected - 실패.
+* fulfilled와 rejected를 settled라고 함. (다른 상태로 변할 수 없음)
+
+비동기 처리가 끝난 후에 처리할 일을 then 메서드로 정의할 수 있다. fulfilled 상태면 첫 번째, rejected 상태면 두 번째 함수를 실행.  
+then 메서드는 Promise 객체를 반환함. 다른 것을 반환하면 그것을 데이터로 하는 Promise 객체 반환.  
+예외처리는 then, catch로 작성하는게 좋음. then에서의 예외도 잡힌다.  
+
+* Promise.all([]) - 여러 Promise들을 병렬로 처리하고 싶을 때 사용.
+하나라도 rejected 상태가 된다면 반환하는 객체도 rejected 상태.  
+* Promise.race([]) - 가장 빨리 settled 된 Promise 객체를 반환.
