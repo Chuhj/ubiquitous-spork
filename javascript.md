@@ -142,3 +142,9 @@ then 메서드는 Promise 객체를 반환함. 다른 것을 반환하면 그것
 * Promise.all([]) - 여러 Promise들을 병렬로 처리하고 싶을 때 사용.
 하나라도 rejected 상태가 된다면 반환하는 객체도 rejected 상태.  
 * Promise.race([]) - 가장 빨리 settled 된 Promise 객체를 반환.
+
+### document
+* getElementById - Id에 맞는 요소를 찾아 반환.
+* getElementsByClassName, Name, TagName - class, name, 태그 이름에 맞는 요소를 찾아 배열로 반환.
+* querySelector - css selector 사용 가능. 선택자에 맞는 첫번째 하나의 요소 반환.
+* querySelectorAll - 선택자에 맞는 모든 요소 배열로 반환.
