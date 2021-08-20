@@ -148,3 +148,6 @@ then 메서드는 Promise 객체를 반환함. 다른 것을 반환하면 그것
 * getElementsByClassName, Name, TagName - class, name, 태그 이름에 맞는 요소를 찾아 배열로 반환.
 * querySelector - css selector 사용 가능. 선택자에 맞는 첫번째 하나의 요소 반환.
 * querySelectorAll - 선택자에 맞는 모든 요소 배열로 반환.
+
+요소의 className에 값을 넣으면 교체를 해버리므로 classList에 클래스 이름을 add, remove.  
+이 기능을 classList.toggle()이 대신 함.
