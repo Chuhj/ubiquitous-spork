@@ -151,3 +151,9 @@ then 메서드는 Promise 객체를 반환함. 다른 것을 반환하면 그것
 
 요소의 className에 값을 넣으면 교체를 해버리므로 classList에 클래스 이름을 add, remove.  
 이 기능을 classList.toggle()이 대신 함.
+
+### Math
+* Math.random() - 0과 1 사이의 랜덤한 숫자 반환.
+* Math.floor() - 내림
+* Math.ceil() - 올림
+* Math.round() - 반올림
