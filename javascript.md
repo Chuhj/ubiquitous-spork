@@ -157,3 +157,7 @@ then 메서드는 Promise 객체를 반환함. 다른 것을 반환하면 그것
 * Math.floor() - 내림
 * Math.ceil() - 올림
 * Math.round() - 반올림
+
+### JSON
+* JSON.stringify() - js의 객체나 값을 JSON 문자열로 변환
+* JSON.parse() - JSON 문자열을 객체로 변환
