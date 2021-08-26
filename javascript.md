@@ -143,6 +143,33 @@ then 메서드는 Promise 객체를 반환함. 다른 것을 반환하면 그것
 하나라도 rejected 상태가 된다면 반환하는 객체도 rejected 상태.  
 * Promise.race([]) - 가장 빨리 settled 된 Promise 객체를 반환.
 
+### async await
+비동기 프로그래밍을 할 때 동기 프로그래밍 방식으로 코드를 작성하는데 특화된 문법.  
+async 함수 안에 await 오른쪽에 Promise 객체를 둘 수 있다. settled 상태가 될 때까지 기다림.  
+병렬로 await를 사용하려면 Promise 객체를 먼저 생성하고 await 키워드를 사용. 또는 Promise.all()  
+try catch문과 함께 사용하는게 좋음.  
+* Thenable - Promise 처럼 동작하는 객체. then 메서드를 가짐.
+  * async await 는 then 메서드를 가진 객체를 Promise 처럼 취급.
+
+### 제너레이터
+함수의 실행을 중간에 멈추고 재개할 수 있는 기능.  
+yield로 값을 반환할 수 있음. 반환값: {value, done}, return 하면 done: true  
+* next 메서드 - yield가 있는 곳 까지 실행 후 값 반환.
+* return 메서드 - 멈췄던 곳에서 실행을 종료.
+* throw 메서드 - 예외를 발생시킴.
+
+제너레이터 객체는 iterable 하면서 iterator임.  
+* iterator의 조건
+  * next 메서드를 가짐.
+  * next 메서드는 value와 done 속성값을 가진 객체를 반환.
+  * done 속성값은 작업이 끝났을 때 참.
+
+* iterable의 조건
+  * Symbol.iterator 속성값으로 함수를 갖고있음.
+  * 해당 함수를 호출하면 iterator를 반환.
+
+for of 와 전개연산자 오른쪽에 iterable을 넣을 수 있음.
+
 ### document
 * getElementById - Id에 맞는 요소를 찾아 반환.
 * getElementsByClassName, Name, TagName - class, name, 태그 이름에 맞는 요소를 찾아 배열로 반환.
