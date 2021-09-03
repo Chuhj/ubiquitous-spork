@@ -1,8 +1,22 @@
 # Nodejs
 * Node.js 는 서버사이드 자바스크립트이며 구글의 자바스크립트 엔진인 V8을 기반으로 구성된 일종의 소프트웨어 시스템이다.
 * 이벤트 기반으로 개발이 가능하며 Non-Blocking I/O를 지원하기 때문에 비동기식 프로그래밍이 가능하다.
-* ==, ===은 다름 ===은 유형과 값을 모두 비교
 * 콘솔에서 입력값 받기 process.argv
+
+## Body-parser
+요청의 body를 해석하는 미들웨어.  
+```javascript
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+```
+노드 4.16 버전 이후로는 내장되어 있는 함수 사용.  
+
+bodyParser.json()은 'application/json' 방식의 Content-Type 데이터를 받음.  
+bodyParser.text()은 'text/xml' 방식의 Content-Type 데이터를 받음.  
+bodyParser.urlencoded({})은 'application/x-www-form-urlencoded' 방식의 Content-Type 데이터를 받음.  
+
+extended 옵션을 false로 하면 querystring, true로 하면 qs 라이브러리를 사용하여 url-encoded data를 파싱함.  
+qs 라이브러리는 중첩된 객체도 파싱. 깊이는 5까지 가능.  
 
 ## Util 모듈
 * util.format(format, [...]) : console.log() 메소드와 비슷한 기능이지만 console.log()는 화면에 출력하고 util.format은 문자열로 반환합니다.  
