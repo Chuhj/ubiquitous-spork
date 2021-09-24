@@ -18,6 +18,33 @@ bodyParser.urlencoded({})은 'application/x-www-form-urlencoded' 방식의 Conte
 extended 옵션을 false로 하면 querystring, true로 하면 qs 라이브러리를 사용하여 url-encoded data를 파싱함.  
 qs 라이브러리는 중첩된 객체도 파싱. 깊이는 5까지 가능.  
 
+## Bcrypt
+* 암호 해시 함수
+* 레인보우 테이블 공격 방지를 위해 솔트를 통합
+
+## JSON Web Token
+* JSON Web Token (JWT) 은 웹표준 (RFC 7519) 으로서 두 개체에서 JSON 객체를 사용하여 가볍고 자가수용적인 (self-contained) 방식으로 정보를 안전성 있게 전달해준다.
+* JWT는 필요한 모든 정보를 자체적으로 갖고있음. 토큰에 대한 기본정보, 전달할 정보, 토큰이 검증됐는지 증명해주는 signature를 가짐.
+* 자가수용적이므로 두 개체 사이에서 손쉽게 전달 될 수 있음. 웹서버에서 HTTP 헤더, URL 파라미터로 전달 할 수 있음.
+
+### JWT의 구조
+
+#### 헤더
+* typ: 토큰의 타입 (JWT)
+* alg: 해싱 알고리즘. 보통 HMAC SHA256, RSA 사용됨. signature 부분에서 사용됨.
+
+#### 정보 (payload)
+* 정보 한 개를 claim 이라 부름. (name / value)
+* registered, public, private claim이 있음.
+* registered claim
+  * 토큰에 대한 정보를 담고 있음. 선택적으로 사용.
+  * iss, sub, aud, exp, nbf, iat, jti
+* public claim
+  * 충돌이 방지된 이름을 가저야함. claim 이름을 URI형식으로 지음.
+* private claim
+  * 클라이언트와 서버간의 협의하에 사용되는 claim.
+  * 이름이 중복될 수 있으니 유의.
+
 ## Util 모듈
 * util.format(format, [...]) : console.log() 메소드와 비슷한 기능이지만 console.log()는 화면에 출력하고 util.format은 문자열로 반환합니다.  
 %s : 문자열  
