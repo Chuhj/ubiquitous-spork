@@ -199,3 +199,22 @@ const onClickTable = useCallback(() => {
 * <Route>를 <Switch> 안에 넣어주면 첫번째만 렌더링
 * 상위 주소도 맞다고 치고 렌더링함
 * <Route exact path='/'/> exact는 완벽히 주소가 같아야만 렌더링
+
+
+## Create React App
+### Setup Proxy
+* src/setupProxy.js 파일로 프록시 설정 가능.
+ 
+```javascript
+ const { createProxyMiddleware } = require('http-proxy-middleware');
+
+ module.exports = function (app) {
+  app.use(
+    '/api',
+    createProxyMiddleware({
+      target: 'http://localhost:5000',
+      changeOrigin: true,
+    })
+  );
+};
+```
