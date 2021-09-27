@@ -32,3 +32,33 @@ export function addTodo(text) {
   * CombineReducers 함수로 합칠 수 있음.
 * createStore(리듀서)함수로 스토어 생성
   * 스토어에 getState(), dispatch(), subscribe(), replaceReducer() 함수가 있음
+
+### applyMiddleware
+* 미들웨어를 적용하기 위한 함수.
+```javascript
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import promiseMiddleware from 'redux-promise';
+import rootReducer from './_reducers/index';
+
+const store = createStore(
+  rootReducer,
+  compose(
+    applyMiddleware(promiseMiddleware, thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
+// compose는 함수를 왼쪽에서 오른쪽으로 합쳐주는 함수.
+// 미들웨어들을 다 적용하고 개발도구도 적용.
+```
+* 강의 내용
+```javascript
+const createStoreWithMiddleware = applyMiddleware(
+  promiseMiddleware,
+  reduxThunk
+)(createStore);
+
+createStoreWithMiddleware(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+```
+* 이게 무슨 문법인가
