@@ -62,3 +62,7 @@ const createStoreWithMiddleware = applyMiddleware(
 createStoreWithMiddleware(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 ```
 * 이게 무슨 문법인가
+
+### Redux-promise
+* redux-promise를 적용하면 액션의 payload로 Promise를 넣을 수 있다.
+* payload로 Promise를 넣으면 dispatch는 payload의 결과 값을 데이터로 하는 Promise를 반환한다.
