@@ -170,6 +170,19 @@ yield로 값을 반환할 수 있음. 반환값: {value, done}, return 하면 do
 
 for of 와 전개연산자 오른쪽에 iterable을 넣을 수 있음.
 
+제너레이터 함수를 호출하면 실제로 실행되는게 아니고 제너레이터 객체만 생성.  
+값이 필요한 순간에만 iterable을 통해 필요한 연산 수행 - lazy evaluate  
+
+제너레이터 함수에서 다른 제너레이터 함수를 호출할 때는 yield* 키워드 사용. 키워드에 iterable 사용 가능.  
+
+제너레이터 함수는 외부로부터 데이터를 받아 사용할 수 있음.  
+next()에 값을 넣으면 현재 멈춰있는 yield의 반환값으로 쓰임.  
+
+제너레이터 함수는 다른 함수와 협업 멀티태스킹(cooperative multitasking)을 할 수 있음. 실행을 멈추고 재개할 수 있기 때문.  
+협업이 붙는 이유는 제너레이터가 실행을 멈추는 시점을 자발적으로 선택하기 때문.  
+
+next() 부분에서 try catch문으로 예외처리.
+
 ### document
 * getElementById - Id에 맞는 요소를 찾아 반환.
 * getElementsByClassName, Name, TagName - class, name, 태그 이름에 맞는 요소를 찾아 배열로 반환.
