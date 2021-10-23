@@ -183,6 +183,22 @@ next()에 값을 넣으면 현재 멈춰있는 yield의 반환값으로 쓰임.
 
 next() 부분에서 try catch문으로 예외처리.
 
+### 프로토타입
+Object.getPrototypeOf()로 프로토타입을 가져올 수 있음. (null 또는 object 타입) (\__proto\__ 속성으로 접근 가능)  
+Object.setPrototypeOf()로 프로토타입을 변경할 수 있음.  
+
+자기자신에 없는 속성이 있을 때 프로토타입에서 그 속성을 찾음.  
+프로토타입을 여러 단계로 연결 가능.  
+
+프로토타입은 일반적인 객체이기 때문에 함수를 정의해 공통로직을 추가할 수 있음.  
+
+for in 을 사용하면 프로토타입에 있는 속성까지 순회.  
+.hasOwnProperty() 메소드로 자기자신의 속성인지 확인 가능.  
+Object.keys() 자기자신의 속성 반환.  
+
+생성자 함수로 객체를 만들면 그 함수의 this를 반환함.  
+함수는 먼저 this에 빈 객체 할당.
+
 ### document
 * getElementById - Id에 맞는 요소를 찾아 반환.
 * getElementsByClassName, Name, TagName - class, name, 태그 이름에 맞는 요소를 찾아 배열로 반환.
