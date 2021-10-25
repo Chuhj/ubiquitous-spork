@@ -184,7 +184,7 @@ next()에 값을 넣으면 현재 멈춰있는 yield의 반환값으로 쓰임.
 next() 부분에서 try catch문으로 예외처리.
 
 ### 프로토타입
-Object.getPrototypeOf()로 프로토타입을 가져올 수 있음. (null 또는 object 타입) (\__proto\__ 속성으로 접근 가능)  
+Object.getPrototypeOf()로 프로토타입을 가져올 수 있음. (null 또는 object 타입) (\_\_proto\_\_ 속성으로 접근 가능)  
 Object.setPrototypeOf()로 프로토타입을 변경할 수 있음.  
 
 자기자신에 없는 속성이 있을 때 프로토타입에서 그 속성을 찾음.  
@@ -198,6 +198,55 @@ Object.keys() 자기자신의 속성 반환.
 
 생성자 함수로 객체를 만들면 그 함수의 this를 반환함.  
 함수는 먼저 this에 빈 객체 할당.
+
+### 클래스
+```javascript
+class Person {
+  constructor(name) {
+    // 생성자
+    this.name = name;
+  }
+}
+```
+클래스는 함수와 프로토타입을 기반으로 만들어짐.  
+모든 함수는 프로토타입 객체를 가지는데 클래스에서 정의한 메소드들이 프로토타입 객체에 저장됨.  
+멤버 변수는 각 객체에 할당됨.  
+
+* 상속
+```javascript
+class Programmer extends Person {
+  constructor(name, language) {
+    super(name); // 부모의 생성자를 호출해야함
+    this.language = language;
+  }
+}
+```
+
+```javascript
+constructor(...args) {
+  super(...args);
+}
+```
+생성자를 정의하지 않으면 위의 생성자가 기본으로 사용.  
+extends로 상속을 할 수 있음.  
+자식 클래스의 객체는 부모 클래스의 메소드를 호출할 수 있음.  
+
+클래스 상속도 프로토타입을 기반으로 구현.  
+```javascript
+console.log(Object.getPrototypeOf(Programmer.prototype) === Person.prototype);
+console.log(Object.getPrototypeOf(Programmer) === Person);
+```
+자식 클래스의 프로토타입 객체는 부모 클래스의 프로토타입 객체를 프로토타입 체인으로 연결해서 갖고 있음.  
+자식 클래스도 부모 클래스를 프로토타입 체인으로 연결해서 갖고 있음.  
+
+* Class fields  
+그냥 변수에 값을 등호로 넣으면 그 값은 프로토타입이 아니라 객체에 할당됨.  
+부모에 Class fields와 자식에 이름이 같은 메서드가 있으면 객체에 있는것을 먼저 찾으므로 Class fields를 사용하게 됨.
+클래스 필드와 화살표 함수를 같이 쓰면 콜백함수로 이 함수를 사용할 수 있음. 함수 안의 this는 문제없이 사용.  
+
+super는 프로토타입을 기반으로 동작하기 때문에, 부모 클래스의 Class fields에 접근하려 하면 에러.  
+super는 ```Programmer.prototype.__proto__.sayHello.call(this);``` 이런식으로 동작하는데 super를 사용한 메서드는 자기 자신의 클래스를 기억하고 있음. (HomeObject)  
+자기 자신의 클래스를 기억하기 때문에 메소드를 추출해서 사용 가능. 
 
 ### document
 * getElementById - Id에 맞는 요소를 찾아 반환.
