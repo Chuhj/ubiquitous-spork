@@ -88,7 +88,9 @@
 * 단위
   * px
   * %
-  * em - 기본 1.0 (16px 정도)
+  * em - 기본 1.0 (16px 정도)  
+    해당 요소의 font-size를 1em, 없다면 부모 요소의 font-size를 1em으로 사용.
+  * rem - html의 font-size를 1rem으로 사용
 
 * url 함수
   * background-img 속성의 속성값으로 많이 사용됨. 이 경우 배경 이미지의 경로
