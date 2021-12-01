@@ -15,7 +15,8 @@ TDD의 첫 번째 단계가 단위 테스트.
 * 테스트 코드를 만듬.  
 적색(기능 코드가 없어 테스트 실패) => 녹색(테스트 성공) => 리팩터(Blue)(코드 개선) 순환.  
 
-이렇게 하면 테스트하기 쉬운 코드를 만들게 되고, 함수가 하나의 기능을 하게 만들게 된다.
+이렇게 하면 테스트하기 쉬운 코드를 만들게 되고, 함수가 하나의 기능을 하게 만들게 된다.  
+테스트 코드가 있기 때문에 안심하고 리팩토링을 할 수 있다.
 
 ## Jasmine 테스트 코드의 골격
 ```javascript
@@ -35,12 +36,12 @@ expect(결과 값).toBe(기대하는 값)
 spyOn(감시할 객체, 감시할 메소드)
 
 ## 테스트 할 수 없는 코드를 테스트하려면?
-1. 코드를 UI에서 완전히  - HTML에서 JS코드를 떼어내면 비즈니스 로직만 테스트 할 수 있음.
+1. 코드를 UI에서 완전히 분리 - HTML에서 JS코드를 떼어내면 비즈니스 로직만 테스트 할 수 있음.
 2. 자바스크립트를 별도 파일로 분리 - 다른 곳에서도 재사용. 테스트성도 좋아짐.
 
 ## 모듈 패턴
 함수로 데이터를 감추고, 모듈 API를 담고 있는 객체를 반환하는 형태. (자바스크립트에서 가장 많이 사용하는 패턴)  
-1. 임의 함수를 호출하여 생성하는 모듈
+1. 임의 모듈 패턴 (임의 함수를 호출하여 생성하는 모듈 패턴)
 ```javascript
 // 이름공간으로 활용한다.
 var App = App || {};
@@ -55,6 +56,9 @@ App.Person = function (God) {
     setName: function (newName) { name = newName }
   };
 }
+
+const person = App.Person(God);
+person.getName();
 ```
 2. 즉시 실행 함수(IIFE) 기반의 모듈 패턴 (싱글톤 인스턴스가 됨)
 ```javascript
@@ -70,4 +74,55 @@ App.Person = (function () {
     setName (newName) { name = newName } 
   }
 })(); // 함수 선언 즉시 실행. 싱글톤
+
+App.Person.getName(God);
+```
+### 모듈 생성 원칙
+1. 단일 책임 원칙에 따라 모듈은 한 가지 역할만 한다.
+2. 모듈 자신이 사용할 객체가 있다면 의존성 주입 형태로 제공한다. (또는 팩토리 주입)  
+이렇게 하면 테스트하기 쉽다.  
+
+## ClickCounter 예제
+### ClickCounter
+```javascript
+describe('App.ClickCounter', ()=> {
+  let counter;
+  beforeEach(() => {
+    counter = App.ClickCounter();
+  })
+  describe('getValue()', ()=> {
+    it('초기값이 0인 카운터 값을 반환한다', ()=> {
+      expect(counter.getValue()).toBe(0);
+    })
+  })
+
+  describe('increase()', ()=> {
+    it('카운터를 1 올린다', ()=> {
+      const initialValue = counter.getValue();
+      counter.increase();
+      expect(counter.getValue()).toBe(initialValue + 1);
+    })
+  })
+})
+```
+* beforeEach(): it 함수 호출 직전에 실행되는 jasmine 함수.  
+중복되는 코드를 beforeEach로. DRY하게.  
+### ClickCountView
+#### updateView()
+```javascript
+describe('App.ClickCountView', () => {
+  let clickCounter, updateEl, view;
+  beforeEach(() => {
+    clickCounter = App.ClickCounter();
+    updateEl = document.createElement('span');
+    view = App.ClickCountView(clickCounter, updateEl);
+  })
+  describe('updateView()', () => {
+    it('ClickCounter의 getValue() 값을 출력한다', () => {
+      const value = clickCounter.getValue();
+      view.updateView();
+      expect(updateEl.innerHTML).toBe(value.toString());
+    })
+  })
+})
 ```
