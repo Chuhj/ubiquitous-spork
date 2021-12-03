@@ -110,6 +110,17 @@ describe('App.ClickCounter', ()=> {
 ### ClickCountView
 #### updateView()
 ```javascript
+// ClickCountView.js
+App.ClickCountView = (clickCounter, updateEl) => {
+  return {
+    updateView() {
+      const value = clickCounter.getValue();
+      updateEl.innerHTML = value;
+    }    
+  }
+}
+
+// ClickCountView.spec.js
 describe('App.ClickCountView', () => {
   let clickCounter, updateEl, view;
   beforeEach(() => {
@@ -124,5 +135,34 @@ describe('App.ClickCountView', () => {
       expect(updateEl.innerHTML).toBe(value.toString());
     })
   })
+})
+```
+#### ClickCountView에 의존성이 주입되었는지 체크
+모듈을 사용하는 측에서 의존모듈을 넘겨주지 않으면 ClickCountView가 제대로 동작하지 않을 수 있다.
+해당 테스트코드가 에러를 발생 시켜야 한다면 expect().toThrowError()를 사용한다.
+```javascript
+// ClickCountView.js 처음 부분에 추가
+if (!clickCounter) {
+  throw Error('no clickCounter');
+}
+if (!updateEl) {
+  throw Error('no updateEl');
+}
+
+// ClickCountView.spec.js 'App.ClickCountView' 꾸러미에 추가
+it('clickCounter가 주입되지 않으면 에러', () => {
+  const clickCounter = null;
+  const updateEl = document.createElement('span');
+
+  const actual = () => App.ClickCountView(clickCounter, updateEl);
+  expect(actual).toThrowError();
+})
+
+it('updateEl 주입되지 않으면 에러', () => {
+  const clickCounter = App.ClickCounter();
+  const updateEl = null;
+
+  const actual = () => App.ClickCountView(clickCounter, updateEl);
+  expect(actual).toThrowError();
 })
 ```
