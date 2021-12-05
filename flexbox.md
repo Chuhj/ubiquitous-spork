@@ -29,21 +29,33 @@ Flexbox에는 중심축과 반대 축이 있다.
 
 ## Container
 #### flex-direction
-container에 display: flex; 를 지정하면 아이템들이 가로로 정렬될 건데, flex-direction 속성이 row로 기본 지정되어있기 때문이다.  
-flex-direction 속성을 row-reverse로 지정하면 수평축을 중심축으로 반대쪽부터 반대 순서로 정렬된다.  
-column이면 수직축을 중심축으로 item들이 정렬된다.  
-column-reverse면 반대순서로 반대쪽부터 정렬된다.  
+* container에 display: flex; 를 지정하면 아이템들이 가로로 정렬될 건데, flex-direction 속성이 row로 기본 지정되어있기 때문이다.  
+* flex-direction 속성을 row-reverse로 지정하면 수평축을 중심축으로 반대쪽부터 반대 순서로 정렬된다.  
+* column이면 수직축을 중심축으로 item들이 정렬된다.  
+* column-reverse면 반대순서로 반대쪽부터 정렬된다.  
 
 #### flex-wrap
-기본값은 nowrap. 무조건 한 줄로 나열된다.  
-wrap을 주면 한 줄이 다 찼을 경우 다음 줄로 넘어간다.  
+* 기본값은 nowrap. 무조건 한 줄로 나열된다.  
+* wrap을 주면 한 줄이 다 찼을 경우 다음 줄로 넘어간다.  
 
 #### flex-flow
-flex-direction과 flex-wrap속성을 한 번에 설정할 수 있다.  
-flex-flow: column wrap;  
+* flex-direction과 flex-wrap속성을 한 번에 설정할 수 있다.  
+* flex-flow: column wrap;  
 
 #### justify-content
-justify-content는 중심축에서 item들을 어떻게 배치할 것인지 결정한다.  
-기본값은 flex-start. 왼쪽부터 item들을 배치한다.  
-수직축이 중심축이라면 위부터 item들을 배치한다.  
-flex-end는 flex-direction속성의 reverse와 다르게 item들의 순서를 유지한 채, 오른쪽 아래로 붙인다.
+* justify-content는 중심축에서 item들을 어떻게 배치할 것인지 결정한다.  
+* 기본값은 flex-start. 왼쪽부터 item들을 배치한다.  
+* 수직축이 중심축이라면 위부터 item들을 배치한다.  
+* flex-end는 flex-direction속성의 reverse와 다르게 item들의 순서를 유지한 채, 오른쪽 아래로 붙인다.
+* center는 item들을 중간으로 정렬시킨다.
+* space-round는 각 item의 주위에 일정한 space를 준다.
+* space-between은 맨 끝의 item을 화면 끝에 붙이고 중간의 item들 사이에 일정한 space를 준다.
+
+#### align-items
+* 반대축에서 item 전체를 어떻게 배치할 것인지 결정한다.
+* center는 item들을 반대축 기준 중간으로 정렬한다.
+* baseline은 텍스트 위치를 균일하게 해준다.
+
+#### align-content
+* 반대축에서 item들을 어떻게 배치할 것인지 결정한다. 한 줄일 경우 효과 없다.
+* justify-content의 값을 사용한다.
