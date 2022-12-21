@@ -35,6 +35,8 @@ let은 재할당 가능.
 함수 표현식: 호이스팅 되지만 undefined로 초기화만 되어있음.
 
 함수 호이스팅 → 변수 호이스팅
+https://developer.mozilla.org/ko/docs/Glossary/Hoisting
+https://tecoble.techcourse.co.kr/post/2021-04-25-hoisting/
 
 ### 기본 타입
 number, bigint, string, boolean, object, symbol, undefined, null  
