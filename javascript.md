@@ -6,8 +6,18 @@
 for문, while문, if문 등에서 사용시 바깥에서도 var로 정의된 변수에 접근 가능.  
 
 var로 정의된 변수는 변수가 속한 스코프의 최상단으로 끌어올려짐. - 호이스팅
-호이스팅 된 후에 undefined가 할당됨.  
-변수가 정의된 곳 위에서 값 할당 가능.  
+변수가 정의된 곳 위에서 값 할당 가능. - 호이스팅  
+호이스팅 시 undefined가 할당됨.  
+
+즉시 실행 함수로 스코프를 제한할 수 있다.
+```javascript
+(function () {
+  for (var i = 0; i < 1; i++) {
+    console.log(i);
+  }
+})();
+console.log(i);
+```
 
 ### const, let
 블록 스코프를 가짐.  
@@ -15,6 +25,16 @@ var로 정의된 변수는 변수가 속한 스코프의 최상단으로 끌어�
 재할당 불가.  
 객체의 속성은 변경 할 수 있다.  
 let은 재할당 가능.
+
+### 호이스팅
+어떤 변수나 함수의 선언부가 위치한 스코프의 최상단에서 해당 변수나 함수에 접근이 가능한 현상이다.
+인터프리터가 변수와 함수의 메모리 공간을 선언 전에 미리 할당하는 것을 의미한다.
+런타임에서는 변수와 함수의 선언이 스코프의 최상단으로 끌어올려진 것 처럼 동작하게 된다.
+
+함수 선언식: 호이스팅되어 함수의 선언부 위에서도 실행 가능.
+함수 표현식: 호이스팅 되지만 undefined로 초기화만 되어있음.
+
+함수 호이스팅 → 변수 호이스팅
 
 ### 기본 타입
 number, bigint, string, boolean, object, symbol, undefined, null  
@@ -104,6 +124,10 @@ nullish coalescing과 사용하기 좋음.
 프로그램이 처음 실행될 때 global execution context가 생성됨.  
 execution context안에 lexical environment가 있음.  
 lexical environment - 지역변수의 정보를 저장 - {변수이름:값}으로 이루어진 map이라 보면됨.  
+
+### Execution context
+실행 컨텍스트는 함수 실행에 대한 세부 정보를 담고 있는 내부 데이터 구조이다. 함수와 변수의 선언, 변수의 현재 값, this의 값, 상위 스코프 등 상세 내부 정보가 실행 컨텍스트에 저장된다.
+Lexical environment와 VariableEnvironment로 구성되어 있다.
 
 ### Lexical environment
 함수가 만들어질 때의 부모함수의 Lexical environment를 기억해두고 실행할 때 자신의 Lexical environment와 부모의 Le를 연결.  
